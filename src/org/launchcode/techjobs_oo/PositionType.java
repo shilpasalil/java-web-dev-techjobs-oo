@@ -2,8 +2,14 @@ package org.launchcode.techjobs_oo;
 import java.util.Objects;
 
 
-public class PositionType {
-    private int id;
+public class PositionType extends JobField{
+    public PositionType(String value){
+        super(value);
+    }
+}
+
+
+/*    private int id;
     private static int nextId = 1;
     private String value;
 
@@ -19,7 +25,7 @@ public class PositionType {
 
     // TODO: Add a custom toString() method that returns the data stored in 'value'.
     @Override
-    public String toString(){ return valure; }
+    public String toString(){ return value; }
 
     // TODO: Add custom equals and hashCode methods. Consider two PositionType objects "equal" when
     //  their id fields match.
@@ -51,3 +57,4 @@ public class PositionType {
         this.value = value;
     }
 }
+*/

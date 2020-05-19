@@ -1,9 +1,13 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.Objects;
+
 public class Job {
 
     private int id;
     private static int nextId = 1;
+    private String value;
+  //  private int counter=0;
 
     private String name;
     private Employer employer;
@@ -42,6 +46,37 @@ public class Job {
 
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    public String toString(){
+
+
+        //check if a Job only contains data for the id field and rest are blank... return"OOPS!This job does not seem to exist"
+        if(this.getName().isEmpty() && this.getEmployer().getValue().isEmpty() && this.getLocation().getValue().isEmpty() && this.getPositionType().getValue().isEmpty() && this.getCoreCompetency().getValue().isEmpty()){
+            value= "OOPS! This job does not seem to exist.";
+        }else {
+
+            //check if any field is empty and add "Data not available" after the label
+            if (this.getName().isEmpty()) {
+                this.setName("Data not available");
+            }
+            if(this.getEmployer().getValue().isEmpty()) {
+                this.getEmployer().setValue("Data not available");
+            }
+            if(this.getLocation().getValue().isEmpty()) {
+                this.getLocation().setValue("Data not available");
+            }
+            if(this.getPositionType().getValue().isEmpty()) {
+                this.getPositionType().setValue("Data not available");
+            }
+            if(this.getCoreCompetency().getValue().isEmpty()){
+                this.getCoreCompetency().setValue("Data not available");
+            }
+            //returning a string to display for each Job including \n in the beginning and ending
+            value = "\nID:" + this.getId() + "\nName:" + this.getName() + "\nEmployer:" + this.getEmployer().getValue() + "\nLocation:" + this.getLocation().getValue() + "\nPosition Type:" + this.getPositionType().getValue() + "\nCore Competency:" + this.getCoreCompetency().getValue() + "\n";
+        }
+
+        return value;
     }
 
 
